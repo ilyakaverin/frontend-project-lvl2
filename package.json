@@ -1,0 +1,26 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "description": "ilyakaverin practise",
+  "main": "gendiff.js",
+  "scripts": {
+    "test": "-h"
+  },
+  "type":"module",
+  "bin": {
+    "gendiff": "bin/gendiff.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyakaverin/frontend-project-lvl2.git"
+  },
+  "author": "ilyakaverin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilyakaverin/frontend-project-lvl2/issues"
+  },
+  "homepage": "https://github.com/ilyakaverin/frontend-project-lvl2#readme",
+  "dependencies": {
+    "commander": "^7.2.0"
+  }
+}
