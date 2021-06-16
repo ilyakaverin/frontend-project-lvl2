@@ -6,4 +6,4 @@ program
 .description('Compares two configuration files and shows a difference.')
 .option('-f, --format','output format')
 .arguments('<filepath1> <filepath2>')
-program.parse()
+program.parse() 
