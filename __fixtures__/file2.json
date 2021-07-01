@@ -1,6 +1,5 @@
 {
     "timeout": 20,
     "verbose": true,
-    "host": "hexlet.io",
-    "warcraft": 2
+    "host": "hexlet.io"
   }

@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
@@ -30,7 +31,7 @@ const genDiff = (file1, file2) => {
     }
   });
   const entries = Object.entries(result);
-  const res = entries.map((pair) => `${pair[0]}: ${pair[1]}`);
+  const res = entries.map((pair) => ` ${pair[0]}: ${pair[1]}`);
   const output = res.join('\n');
   return `{\n${output}\n}`;
 };
