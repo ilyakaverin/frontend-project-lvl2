@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "ilyakaverin practise",
-  "main": "gendiff.js",
+  "main": "src/genDiff.js",
   "scripts": {
     "test": "-h"
   },
@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/ilyakaverin/frontend-project-lvl2#readme",
   "dependencies": {
-    "commander": "^7.2.0"
+    "commander": "^7.2.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "eslint": "^7.28.0",
