@@ -40,5 +40,4 @@ const genDiff = (file1, file2) => {
   return jsonToFlat(result);
 };
 
-
 export default genDiff;
