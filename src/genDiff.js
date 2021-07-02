@@ -37,7 +37,7 @@ const genDiff = (file1, file2) => {
       result[map.unchanged + key] = data1[key];
     }
   });
-  return jsonToFlat(result);
+  return result;
 };
 
 export default genDiff;
