@@ -1,6 +1,3 @@
-import fs from 'fs';
-import path from 'path';
-import _ from 'lodash';
 import genDiff from '../src/genDiff.js';
 
 test('step4', () => {
