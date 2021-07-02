@@ -7,6 +7,13 @@ const fileToRead = (fileName) => fs.readFileSync(path.resolve(`${process.cwd()}/
 
 // const ext = (pathToFile) => path.extname(pathToFile).slice(1);
 
+export const jsonToFlat = (object) => {
+  const entries = Object.entries(object);
+  const res = entries.map((pair) => ` ${pair[0]}: ${pair[1]}`);
+  const output = res.join('\n');
+  return `{\n${output}\n}`;
+};
+
 const genDiff = (file1, file2) => {
   const data1 = JSON.parse(fileToRead(file1));
   const data2 = JSON.parse(fileToRead(file2));
@@ -30,9 +37,8 @@ const genDiff = (file1, file2) => {
       result[map.unchanged + key] = data1[key];
     }
   });
-  const entries = Object.entries(result);
-  const res = entries.map((pair) => ` ${pair[0]}: ${pair[1]}`);
-  const output = res.join('\n');
-  return `{\n${output}\n}`;
+  return jsonToFlat(result);
 };
+
+
 export default genDiff;
