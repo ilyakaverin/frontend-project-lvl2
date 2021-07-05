@@ -5,11 +5,9 @@ import _ from 'lodash';
 
 const fileToRead = (fileName) => fs.readFileSync(path.resolve(`${process.cwd()}/__fixtures__`, fileName), 'utf-8');
 
-// const ext = (pathToFile) => path.extname(pathToFile).slice(1);
-
 export const jsonToFlat = (object) => {
   const entries = Object.entries(object);
-  const res = entries.map((pair) => ` ${pair[0]}: ${pair[1]}`);
+  const res = entries.map((pair) => `  ${pair[0]}: ${pair[1]}`);
   const output = res.join('\n');
   return `{\n${output}\n}`;
 };
@@ -37,7 +35,7 @@ const genDiff = (file1, file2) => {
       result[map.unchanged + key] = data1[key];
     }
   });
-  return result;
+  return jsonToFlat(result);
 };
 
 export default genDiff;
