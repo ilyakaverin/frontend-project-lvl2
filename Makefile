@@ -14,6 +14,8 @@ test-coverage:
 
 lint:
 	npx eslint .
+jest:
+	npx jest --bail
 
 publish:
 	npm publish
