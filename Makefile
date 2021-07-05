@@ -15,7 +15,7 @@ test-coverage:
 lint:
 	npx eslint .
 jest:
-	npx jest --bail
+	node --experimental-vm-modules node_modules/.bin/jest
 
 publish:
 	npm publish
