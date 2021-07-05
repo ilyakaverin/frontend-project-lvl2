@@ -4,7 +4,7 @@
   "description": "ilyakaverin practise",
   "main": "src/genDiff.js",
   "scripts": {
-    "test": "-h"
+    "test": "npx jest --bail"
   },
   "type": "module",
   "bin": {
@@ -25,10 +25,12 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@jest/globals": "^27.0.6",
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-jest": "^24.3.6",
-    "jest": "^27.0.4"
+    "jest": "^27.0.4",
+    "jest-cli": "^27.0.6"
   }
 }
