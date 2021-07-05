@@ -1,13 +1,21 @@
-install:
+install: install-deps
+
+run:
+	bin/nodejs-package.js 10
+
+install-deps:
 	npm ci
 
-publish:
-	npm publish --dry-run
-	npm link
+test:
+	npm test
+
 test-coverage:
 	npm test -- --coverage --coverageProvider=v8
 
-lint: 
+lint:
 	npx eslint .
-jest:
-	node --experimental-vm-modules node_modules/.bin/jest
+
+publish:
+	npm publish
+
+.PHONY: test
