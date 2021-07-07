@@ -1,20 +1,16 @@
 /* eslint-disable array-callback-return */
-import fs from 'fs';
-import path from 'path';
 import _ from 'lodash';
+import parse from './parsers.js';
 
-const fileToRead = (fileName) => fs.readFileSync(path.resolve(`${process.cwd()}/__fixtures__`, fileName), 'utf-8');
-
-export const jsonToFlat = (object) => {
+const jsonToFlat = (object) => {
   const entries = Object.entries(object);
   const res = entries.map((pair) => `  ${pair[0]}: ${pair[1]}`);
   const output = res.join('\n');
   return `{\n${output}\n}`;
 };
-
 const genDiff = (file1, file2) => {
-  const data1 = JSON.parse(fileToRead(file1));
-  const data2 = JSON.parse(fileToRead(file2));
+  const data1 = parse(file1);
+  const data2 = parse(file2);
   const keys = _.union(Object.keys(data1), Object.keys(data2));
   const sortedKeys = keys.sort();
   const map = {
@@ -37,5 +33,6 @@ const genDiff = (file1, file2) => {
   });
   return jsonToFlat(result);
 };
+
 
 export default genDiff;

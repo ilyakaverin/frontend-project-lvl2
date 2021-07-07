@@ -12,3 +12,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 test('step4', () => {
   expect(genDiff('before.json', 'after.json')).toEqual(readFile('expectedFile.json'));
 });
+
+test('step5', () => {
+  expect(genDiff('before.yaml', 'after.yaml')).toEqual(readFile('expectedFile.json'));
+});
