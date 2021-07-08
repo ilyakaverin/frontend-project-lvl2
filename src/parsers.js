@@ -10,7 +10,9 @@ const parse = (filename) => {
   switch (ext(filename)) {
     case 'json':
       return JSON.parse(fileToRead(filename));
-    case 'yaml' || 'yml':
+    case 'yaml':
+      return yaml.safeLoad(fileToRead(filename));
+    case 'yml':
       return yaml.safeLoad(fileToRead(filename));
     default:
       return 'unsupported extension';

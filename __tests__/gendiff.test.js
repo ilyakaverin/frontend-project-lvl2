@@ -16,3 +16,6 @@ test('step4', () => {
 test('step5', () => {
   expect(genDiff('before.yaml', 'after.yaml')).toEqual(readFile('expectedFile.json'));
 });
+test('step6', () => {
+  expect(genDiff('tree1.json', 'tree2.json')).toEqual(readFile('expectedTree.json'));
+});
