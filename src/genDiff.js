@@ -1,37 +1,32 @@
 /* eslint-disable array-callback-return */
 import _ from 'lodash';
-import parse from './parsers.js';
 
-const jsonToFlat = (object) => {
-  const entries = Object.entries(object);
-  const res = entries.map((pair) => `  ${pair[0]}: ${pair[1]}`);
-  const output = res.join('\n');
-  return `{\n${output}\n}`;
-};
-const genDiff = (file1, file2) => {
-  const data1 = parse(file1);
-  const data2 = parse(file2);
-  const keys = _.union(Object.keys(data1), Object.keys(data2));
-  const sortedKeys = keys.sort();
-  const map = {
-    minus: '- ',
-    plus: '+ ',
-    unchanged: '  ',
-  };
-  const result = {};
-  sortedKeys.map((key) => {
+const genDiff = (data1, data2) => {
+  const keys = _
+    .union(Object.keys(data1), Object.keys(data2))
+    .sort();
+
+  // eslint-disable-next-line consistent-return
+  const ast = keys.map((key) => {
+    if (!_.has(data1, key)) {
+      return { status: 'added', key, value: data2[key] };
+    }
     if (!_.has(data2, key)) {
-      result[map.minus + key] = data1[key];
-    } else if (_.has(data1, key) && data1[key] !== data2[key]) {
-      result[map.minus + key] = data1[key];
-      result[map.plus + key] = data2[key];
-    } else if (data1[key] !== data2[key]) {
-      result[map.plus + key] = data2[key];
-    } else {
-      result[map.unchanged + key] = data1[key];
+      return { status: 'deleted', key, value: data1[key] };
+    }
+    if (data1[key] === data2[key]) {
+      return { status: 'unchanged', key, value: data2[key] };
+    }
+    if (_.isObject(data1[key]) && _.isObject(data2[key])) {
+      return { status: 'nested', key, children: genDiff(data1[key], data2[key]) };
+    }
+    if (_.has(data1, key) && data1[key] !== data2[key]) {
+      return {
+        status: 'changed', key, before: data1[key], after: data2[key],
+      };
     }
   });
-  return jsonToFlat(result);
+  return ast;
 };
 
 export default genDiff;
