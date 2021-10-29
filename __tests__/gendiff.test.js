@@ -9,10 +9,6 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8').trim();
 
-test('step3', () => {
-  expect(diff('before.json', 'after.json', 'stylish')).toEqual(readFile('expectedFile.json'));
-});
-
 test('step6', () => {
   expect(diff('tree1.json', 'tree2.json', 'stylish')).toEqual(readFile('expectedTree.json'));
 });
