@@ -8,6 +8,6 @@ program
   .option('-f, --format [type]', 'output format: stylish', 'stylish')
   .arguments('<filepath1> <filepath2>')
   .action((data1, data2) => {
-    console.log(diff(data1, data2, program.format));
+    console.log(diff(data1, data2, program.opts().format));
   });
 program.parse(process.argv);

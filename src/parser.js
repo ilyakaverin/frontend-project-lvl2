@@ -1,9 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import yaml from 'js-yaml';
-import { cwd } from 'process';
 
-const fileToRead = (fileName) => fs.readFileSync(`${cwd()}/__fixtures__/${fileName}`, 'utf-8');
+const fileToRead = (fileName) => fs.readFileSync(path.resolve(`${process.cwd()}/__fixtures__`, fileName), 'utf-8');
 
 const ext = (filename) => path.extname(filename).slice(1);
 
@@ -16,7 +15,7 @@ const parse = (filename) => {
     case 'yml':
       return yaml.safeLoad(fileToRead(filename));
     default:
-      return 'unsupported extension';
+      throw new Error(`${ext(filename)} is not supported`);
   }
 };
 export default parse;
