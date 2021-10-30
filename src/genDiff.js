@@ -4,7 +4,6 @@ import _ from 'lodash';
 const genDiff = (data1, data2) => {
   const keys = _
     .union(Object.keys(data1), Object.keys(data2));
-  
   const sortedKeys = keys.sort();
 
   // eslint-disable-next-line consistent-return
