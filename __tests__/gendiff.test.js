@@ -9,7 +9,7 @@ const __dirname = dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8').trim();
 
-const formats = [['stylish', 'expectedTree.json'], ['plain', 'plainResult.txt'], ['json', 'jsonResult.txt']];
+const formats = [['stylish', 'expectedTree.txt'], ['plain', 'plainResult.txt'], ['json', 'jsonResult.txt']];
 
 test.each(formats)('all styles', (style, expected) => {
   expect(diff('tree1.json', 'tree2.json', style)).toBe(readFile(expected));
