@@ -12,3 +12,6 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 test('step6', () => {
   expect(diff('tree1.json', 'tree2.json', 'stylish')).toEqual(readFile('expectedTree.json'));
 });
+test('step7', () => {
+  expect(diff('tree1.json', 'tree2.json', 'plain')).toEqual(readFile('plainResult.txt'));
+});
