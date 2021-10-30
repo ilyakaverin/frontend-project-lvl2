@@ -1,14 +1,13 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
-
-export const stringify = (tree) => JSON.stringify(tree);
+import json from './json.js';
 
 export default (format = 'stylish') => {
   switch (format) {
     case 'stylish':
       return stylish;
     case 'json':
-      return stringify;
+      return json;
     case 'plain':
       return plain;
 
