@@ -4,7 +4,7 @@ const get = (value) => {
   if (_.isObject(value)) {
     return '[complex value]';
   }
-  return (_.isNull(value) || _.isBoolean(value)) ? value : `'${value}'`;
+  return (_.isNull(value) || _.isBoolean(value)) || _.isNumber(value) ? value : `'${value}'`;
 };
 
 const plain = (tree, path = '') => tree.map(({
