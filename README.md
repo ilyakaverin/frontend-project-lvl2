@@ -5,5 +5,4 @@
 [![Test Coverage](https://api.codeclimate.com/v1/badges/eed0703ead9e43ef5dee/test_coverage)](https://codeclimate.com/github/ilyakaverin/frontend-project-lvl2/test_coverage)
 
 
-step 3:  https://asciinema.org/a/xwxfWnaTlr8ImdlehoZIzaybS
-step 5:  https://asciinema.org/a/dSycQLCfOD9qOZus3R3xf5j4I
+how its working: https://asciinema.org/connect/b9294121-c216-4c43-ab8f-9c5fba7906fb
